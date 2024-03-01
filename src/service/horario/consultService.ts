@@ -1,7 +1,7 @@
 import prismaClient from "../../prisma";
 
 
- class ListService{
+ class consultService{
      async execute(){
   // let valores = [];
    //const agendas = await prismaClient.agendamento.findMany({
@@ -11,25 +11,19 @@ import prismaClient from "../../prisma";
   // console.log(agendas) 
   //  valores.push(agendas)
 
-    const list = await prismaClient.servico.findMany({
-   
-
-    select:{  
-        id: true,
-       nome: true,
-       descricao: true,
-       valor: true
+  const list = await prismaClient.horario.findMany({
+     select:{
+       horarios: true
+        }
+     
     }
-  
-
-    })  
+  )
   
    
-   //console.log(list)
+ //  console.log(list)
  
    
    return list;
   }  
     }
-  export {ListService}
-
+  export {consultService}
